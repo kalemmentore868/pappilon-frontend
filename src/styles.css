@@ -1,0 +1,135 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.q-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 150vh;
+  background-color: #f0f6ff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+  width: 1100px;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.form1 {
+  width: 180px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+/* Part 1 CSS*/
+
+h1 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+select,
+textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #53e658;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button-container button {
+  margin: 0 10px;
+}
+
+.button {
+  padding: 10px 20px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px; /* Add margin between buttons */
+}
+
+.button-green {
+  color: #ffffff;
+  background-color: #0ac628;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 80px; /* Adjust the margin as needed */
+  margin-right: 80px;
+}
+
+.button-red {
+  color: #ffffff;
+  background-color: #f65252;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 80px; /* Adjust the margin as needed */
+  margin-right: 270px;
+}
+
+.notification-area {
+  background-color: #fff0f0;
+  padding: 40px;
+  border-radius: 5px;
+  border: 2px solid #fff0f0;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+label {
+  flex-basis: 150px;
+  margin-right: 100px;
+}
+
+input[type="radio"] {
+  flex-grow: 1;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+}
+
+/* Part 2  CSS */
+
+.notification-area1 {
+  background-color: #f2f2f2;
+  padding: 40px;
+  border-radius: 5px;
+  border: 2px solid #f2f2f2;
+}

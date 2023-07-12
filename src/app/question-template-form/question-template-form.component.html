@@ -1,0 +1,247 @@
+<div class="form1">
+  <div>
+    <button class="button button4">Manage Template &#9881;</button>
+  </div>
+</div>
+
+<form (ngSubmit)="submitForm()" #questionForm="ngForm">
+  <h2>Question Template</h2>
+  <div>
+    <button class="button button-red">Cancel &times;</button>
+    <button class="button button-green" [disabled]="!questionForm.valid">
+      Create Template &plus;
+    </button>
+  </div>
+  <br />
+
+  <div class="notification-area">
+    <!-- Notification messages will be displayed here -->
+  </div>
+  <br />
+
+  <br />
+  <h1>Properties</h1>
+  <br />
+
+  <div class="form-group">
+    <label for="status">Status:</label>
+    <div>
+      <ul>
+        <li>
+          <input
+            type="radio"
+            id="status-in-development"
+            name="status"
+            value="In Development"
+            required
+            [(ngModel)]="questionFormValue.status"
+            #status="ngModel"
+          />
+          <label for="status-in-development">In Development</label>
+        </li>
+        <li>
+          <input
+            type="radio"
+            id="status-active"
+            name="status"
+            value="Active"
+            required
+            [(ngModel)]="questionFormValue.status"
+            #status="ngModel"
+          />
+          <label for="status-active">Active</label>
+        </li>
+        <li>
+          <input
+            type="radio"
+            id="status-hidden"
+            name="status"
+            value="Hidden"
+            required
+            [(ngModel)]="questionFormValue.status"
+            #status="ngModel"
+          />
+          <label for="status-hidden">Hidden</label>
+        </li>
+      </ul>
+      <div *ngIf="status.invalid && status.touched" class="error-message">
+        Status is required
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div class="form-group">
+    <label for="subject">Select Subject</label>
+    <select
+      id="subject"
+      name="subject"
+      required
+      [(ngModel)]="questionFormValue.subject"
+      (change)="loadCSECSections()"
+      #subject="ngModel"
+    >
+      <option value="" disabled>Select Subject</option>
+      <option *ngFor="let subject of subjectOptions" [value]="subject.name">
+        {{ subject.name }}
+      </option>
+    </select>
+    <div *ngIf="subject.invalid && subject.touched" class="error-message">
+      Subject is required
+    </div>
+  </div>
+  <br /><br />
+
+  <div class="form-group">
+    <label for="templateName">Template Name</label>
+    <textarea
+      id="templateName"
+      name="name"
+      rows="1"
+      cols="10"
+      required
+      [(ngModel)]="questionFormValue.name"
+      #name="ngModel"
+    ></textarea>
+    <div *ngIf="name.invalid && name.touched" class="error-message">
+      Name is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="templateDescription">Template Description</label>
+    <textarea
+      id="templateDescription"
+      name="description"
+      rows="5"
+      cols="30"
+      required
+      [(ngModel)]="questionFormValue.description"
+      #description="ngModel"
+    ></textarea>
+    <div
+      *ngIf="description.invalid && description.touched"
+      class="error-message"
+    >
+      Description is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="csecSection">CSEC Section</label>
+    <select
+      id="csecSection"
+      name="csecSection"
+      required
+      [(ngModel)]="questionFormValue.csecSection"
+      (change)="populateObjectives()"
+      #csecSection="ngModel"
+    >
+      <option value="" disabled>Select CSEC Section</option>
+      <option *ngFor="let section of csecSectionOptions" [value]="section.name">
+        {{ section.name }}
+      </option>
+    </select>
+    <div
+      *ngIf="csecSection.invalid && csecSection.touched"
+      class="error-message"
+    >
+      CSEC section is required
+    </div>
+  </div>
+
+  <br /><br />
+
+  <div class="form-group">
+    <label for="objectives">Objectives</label>
+    <ng-select
+      [items]="objectivesOptions"
+      placeholder="Select Objectives"
+      appendTo="body"
+      [multiple]="true"
+      name="objectivesOptions"
+      [(ngModel)]="questionFormValue.objectives"
+    >
+    </ng-select>
+  </div>
+
+  <br /><br />
+
+  <div class="form-group">
+    <label for="QuestionFormat">Question Format</label>
+    <div>
+      <ul>
+        <li>
+          <input
+            type="radio"
+            id="format-multiple-choice"
+            name="format"
+            value="Multiple Choice"
+            [(ngModel)]="questionFormValue.format"
+            #format="ngModel"
+          />
+          <label for="format-multiple-choice">Multiple Choice</label>
+        </li>
+        <li>
+          <input
+            type="radio"
+            id="format-short-format"
+            name="format"
+            value="Short Format"
+            [(ngModel)]="questionFormValue.format"
+            #format="ngModel"
+          />
+          <label for="format-short-format">Short Format</label>
+        </li>
+      </ul>
+      <div *ngIf="format.invalid && format.touched" class="error-message">
+        Question format is required
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div class="form-group">
+    <label for="QuestionType">Question Type</label>
+    <div>
+      <ul>
+        <li>
+          <input
+            type="radio"
+            id="type-single-line"
+            name="type"
+            value="Type 1: Single Line Solution"
+            [(ngModel)]="questionFormValue.type"
+            #type="ngModel"
+          />
+          <label for="type-single-line">Type 1: Single Line Solution</label>
+        </li>
+      </ul>
+      <div *ngIf="type.invalid && type.touched" class="error-message">
+        Question type is required
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div class="form-group">
+    <label for="QuestionDifficulty">Question Difficulty</label>
+    <select
+      id="QuestionDifficulty"
+      name="difficulty"
+      required
+      [(ngModel)]="questionFormValue.difficulty"
+      #difficulty="ngModel"
+    >
+      <option value="" disabled>Select Difficulty</option>
+      <option value="Easy">Easy</option>
+      <option value="Medium">Medium</option>
+      <option value="Hard">Hard</option>
+      <!-- Add more options as needed -->
+    </select>
+    <div *ngIf="difficulty.invalid && difficulty.touched" class="error-message">
+      Difficulty is required
+    </div>
+  </div>
+  <br /><br />
+</form>
