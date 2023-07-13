@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { QuestionFormValue, Subject, CSECSection } from 'src/types';
-import { HttpClient } from '@angular/common/http';
+import { SubjectsService } from '../subjects.service';
+import { CsecSectionsService } from '../csec-sections.service';
+import { QuestionTemplatesService } from '../question-templates.service';
 
 @Component({
   selector: 'app-question-template-form',
@@ -15,8 +17,8 @@ export class QuestionTemplateFormComponent {
     description: '',
     csecSection: '',
     objectives: [],
-    format: '',
-    type: '',
+    questionFormat: '',
+    questionType: '',
     difficulty: '',
   };
 
@@ -26,14 +28,20 @@ export class QuestionTemplateFormComponent {
 
   objectivesOptions: string[] = [''];
 
-  constructor(private http: HttpClient) {}
+  responseId: string = '';
+
+  constructor(
+    private subjectsService: SubjectsService,
+    private csecSectionServices: CsecSectionsService,
+    private questionTemplatesService: QuestionTemplatesService
+  ) {}
 
   ngOnInit() {
     this.loadSubjects();
   }
 
   loadSubjects() {
-    this.http.get<Subject[]>('http://127.0.0.1:5000/api/subjects').subscribe(
+    this.subjectsService.getSubjects().subscribe(
       (response: Subject[]) => {
         this.subjectOptions = response;
       },
@@ -51,10 +59,8 @@ export class QuestionTemplateFormComponent {
     );
     if (chosenSubject) {
       // Make an HTTP request to fetch the CSEC sections for the selected subject
-      this.http
-        .get<CSECSection[]>(
-          `http://127.0.0.1:5000/api/csec_sections/by_subject/${chosenSubject._id.$oid}`
-        )
+      this.csecSectionServices
+        .getCSECSectionsBySubject(chosenSubject._id.$oid)
         .subscribe(
           (response: CSECSection[]) => {
             this.csecSectionOptions = response;
@@ -78,6 +84,16 @@ export class QuestionTemplateFormComponent {
   }
 
   submitForm() {
-    // Handle form submission
+    this.questionTemplatesService
+      .createQuestionTemplate(this.questionFormValue)
+      .subscribe(
+        (response: any) => {
+          this.responseId = response.inserted_id;
+          alert('Successfully created a new question template');
+        },
+        (error) => {
+          console.log('Error loading CSEC sections:', error);
+        }
+      );
   }
 }

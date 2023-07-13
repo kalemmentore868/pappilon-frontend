@@ -5,9 +5,13 @@ export interface QuestionFormValue {
   description: string;
   csecSection: string;
   objectives: string[];
-  format: string;
-  type: string;
+  questionFormat: string;
+  questionType: string;
   difficulty: string;
+}
+
+export interface QuestionTemplateInsertResponse {
+  inserted_id: string;
 }
 
 export interface Subject {

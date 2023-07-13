@@ -177,7 +177,7 @@
             id="format-multiple-choice"
             name="format"
             value="Multiple Choice"
-            [(ngModel)]="questionFormValue.format"
+            [(ngModel)]="questionFormValue.questionFormat"
             #format="ngModel"
           />
           <label for="format-multiple-choice">Multiple Choice</label>
@@ -188,7 +188,7 @@
             id="format-short-format"
             name="format"
             value="Short Format"
-            [(ngModel)]="questionFormValue.format"
+            [(ngModel)]="questionFormValue.questionFormat"
             #format="ngModel"
           />
           <label for="format-short-format">Short Format</label>
@@ -205,21 +205,36 @@
     <label for="QuestionType">Question Type</label>
     <div>
       <ul>
-        <li>
-          <input
-            type="radio"
-            id="type-single-line"
-            name="type"
-            value="Type 1: Single Line Solution"
-            [(ngModel)]="questionFormValue.type"
-            #type="ngModel"
-          />
-          <label for="type-single-line">Type 1: Single Line Solution</label>
-        </li>
+        <div *ngIf="questionFormValue.questionFormat === 'Multiple Choice'">
+          <li>
+            <input
+              type="radio"
+              id="type-single-line"
+              name="type"
+              value="Static"
+              [(ngModel)]="questionFormValue.questionType"
+              #type="ngModel"
+            />
+            <label for="type-single-line">Static</label>
+          </li>
+        </div>
+        <div *ngIf="questionFormValue.questionFormat === 'Short Format'">
+          <li>
+            <input
+              type="radio"
+              id="type-single-line"
+              name="type"
+              value="Single Line Solution"
+              [(ngModel)]="questionFormValue.questionType"
+              #type="ngModel"
+            />
+            <label for="type-single-line">Single Line Solution</label>
+          </li>
+        </div>
       </ul>
-      <div *ngIf="type.invalid && type.touched" class="error-message">
+      <!-- <div *ngIf="type.invalid && type.touched" class="error-message">
         Question type is required
-      </div>
+      </div> -->
     </div>
   </div>
   <br />
@@ -244,4 +259,8 @@
     </div>
   </div>
   <br /><br />
+
+  <button type="submit" [disabled]="!questionForm.valid">
+    Create Template &plus;
+  </button>
 </form>
