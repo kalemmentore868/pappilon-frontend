@@ -1,0 +1,58 @@
+<!-- Part 2 HTML -->
+
+<hr />
+<br />
+<br />
+<h1>Question Details</h1>
+<div class="notification-area1">
+  <!-- Notification messages will be displayed here -->
+  Solution should be a single line expression or value.
+</div>
+<br />
+<br />
+<br />
+
+<form (ngSubmit)="submitForm()" #questionForm="ngForm">
+  <div class="form-group">
+    <label for="QuestionTextTemplate">Question Text Template</label>
+    <textarea
+      id="QuestionTextTemplate"
+      name="text"
+      rows="5"
+      cols="30"
+      [(ngModel)]="questionDetails.question_text_template"
+    ></textarea>
+  </div>
+
+  <br />
+  <br />
+
+  <div class="form-group">
+    <label for="image">Question Image(s)</label>
+    <input
+      type="input"
+      id="image"
+      name="image"
+      [(ngModel)]="questionDetails.question_image"
+    />
+  </div>
+
+  <br />
+  <br />
+
+  <div class="form-group">
+    <label for="developerNote">Developer Note</label>
+    <textarea
+      id="developerNote"
+      name="DeveloperNote"
+      rows="5"
+      cols="30"
+      [(ngModel)]="questionDetails.developer_note"
+    ></textarea>
+  </div>
+  <br />
+
+  <button type="submit" [disabled]="!questionForm.valid">
+    Create Details &plus;
+  </button>
+</form>

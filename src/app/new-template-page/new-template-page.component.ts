@@ -5,4 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './new-template-page.component.html',
   styleUrls: ['./new-template-page.component.css'],
 })
-export class NewTemplatePageComponent {}
+export class NewTemplatePageComponent {
+  screen = 1;
+
+  updateScreen(value: number) {
+    this.screen = value;
+  }
+}

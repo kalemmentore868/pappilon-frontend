@@ -1,1 +1,11 @@
-<app-question-template-form></app-question-template-form>
+<div *ngIf="screen === 1">
+  <app-question-template-form></app-question-template-form>
+</div>
+
+<div *ngIf="screen === 2">
+  <app-question-details-form></app-question-details-form>
+</div>
+
+<div *ngIf="screen === 3">
+  <app-question-solutions></app-question-solutions>
+</div>

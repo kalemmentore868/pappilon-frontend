@@ -30,3 +30,18 @@ export interface CSECSection {
   objectives: string[];
   subject_id: string;
 }
+
+export interface QuestionDetails {
+  question_template_id: string;
+  question_text_template: string;
+  question_image: string;
+  developer_note: string;
+}
+
+export interface QuestionSolutions {
+  question_formula: string;
+  question_hint: string;
+  video_solution: string;
+  image_solution: string;
+  question_template_id: string;
+}

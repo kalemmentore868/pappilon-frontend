@@ -10,6 +10,8 @@ import { NewTemplatePageComponent } from './new-template-page/new-template-page.
 import { AllTemplatesPageComponent } from './all-templates-page/all-templates-page.component';
 import { AppComponent } from './app.component';
 import { QuestionTemplateFormComponent } from './question-template-form/question-template-form.component';
+import { QuestionDetailsFormComponent } from './question-details-form/question-details-form.component';
+import { QuestionSolutionsComponent } from './question-solutions/question-solutions.component';
 
 const appRoutes: Routes = [
   {
@@ -28,6 +30,8 @@ const appRoutes: Routes = [
     QuestionTemplateFormComponent,
     NewTemplatePageComponent,
     AllTemplatesPageComponent,
+    QuestionDetailsFormComponent,
+    QuestionSolutionsComponent,
   ],
   imports: [
     BrowserModule,

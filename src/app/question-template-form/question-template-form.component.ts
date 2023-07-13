@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { QuestionFormValue, Subject, CSECSection } from 'src/types';
 import { SubjectsService } from '../subjects.service';
 import { CsecSectionsService } from '../csec-sections.service';
 import { QuestionTemplatesService } from '../question-templates.service';
+import { NewTemplatePageComponent } from '../new-template-page/new-template-page.component';
+import { QuestionIdService } from '../question-id-service.service';
 
 @Component({
   selector: 'app-question-template-form',
@@ -28,12 +30,13 @@ export class QuestionTemplateFormComponent {
 
   objectivesOptions: string[] = [''];
 
-  responseId: string = '';
-
   constructor(
     private subjectsService: SubjectsService,
     private csecSectionServices: CsecSectionsService,
-    private questionTemplatesService: QuestionTemplatesService
+    private questionTemplatesService: QuestionTemplatesService,
+    private questionIdService: QuestionIdService,
+    @Inject(NewTemplatePageComponent)
+    private newTemplatePage: NewTemplatePageComponent
   ) {}
 
   ngOnInit() {
@@ -88,8 +91,9 @@ export class QuestionTemplateFormComponent {
       .createQuestionTemplate(this.questionFormValue)
       .subscribe(
         (response: any) => {
-          this.responseId = response.inserted_id;
+          this.questionIdService.responseId = response.inserted_id;
           alert('Successfully created a new question template');
+          this.newTemplatePage.updateScreen(2);
         },
         (error) => {
           console.log('Error loading CSEC sections:', error);

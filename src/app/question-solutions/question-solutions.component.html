@@ -1,0 +1,59 @@
+<form (ngSubmit)="submitForm()" #questionForm="ngForm">
+  <hr />
+  <br />
+  <br />
+  <h1>Solutions & Hint</h1>
+
+  <br />
+  <br />
+
+  <div class="form-group">
+    <label for="QuestionFormulaGroup">Question Formula Group</label>
+    <select
+      id="QuestionFormulaGroup"
+      name="formula"
+      [(ngModel)]="questionSolutions.question_formula"
+    >
+      <option value="Algebra">Algebra</option>
+      <option value="Geometry">Geometry</option>
+      <option value="trigonometry">trigonometry</option>
+      <!-- Add more options as needed -->
+    </select>
+  </div>
+  <br /><br />
+
+  <div class="form-group">
+    <label for="QuestionHint">Question Hint</label>
+    <textarea
+      id="QuestionHint"
+      name="hint"
+      rows="5"
+      cols="30"
+      [(ngModel)]="questionSolutions.question_hint"
+    ></textarea>
+  </div>
+  <br />
+
+  <div class="form-group">
+    <label for="video">Video Solution</label>
+    <input
+      type="text"
+      id="video_solution"
+      name="video"
+      [(ngModel)]="questionSolutions.video_solution"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="written_solution">Text / Written Solution</label>
+    <input
+      id="image_solution"
+      name="image_solution"
+      [(ngModel)]="questionSolutions.image_solution"
+    />
+  </div>
+
+  <button type="submit" [disabled]="!questionForm.valid">
+    Create Details &plus;
+  </button>
+</form>
