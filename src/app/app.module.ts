@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { QuestionTemplateFormComponent } from './question-template-form/question-template-form.component';
 import { QuestionDetailsFormComponent } from './question-details-form/question-details-form.component';
 import { QuestionSolutionsComponent } from './question-solutions/question-solutions.component';
+import { DisplayTemplatesComponent } from './display-templates/display-templates.component';
 
 const appRoutes: Routes = [
   {
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
     AllTemplatesPageComponent,
     QuestionDetailsFormComponent,
     QuestionSolutionsComponent,
+    DisplayTemplatesComponent,
   ],
   imports: [
     BrowserModule,

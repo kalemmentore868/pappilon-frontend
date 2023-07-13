@@ -1,0 +1,15 @@
+<div class="template-container">
+  <div class="template-card" *ngFor="let template of templates">
+    <h3 class="template-name">{{ template.name }}</h3>
+    <p class="template-description">{{ template.description }}</p>
+    <div class="template-details">
+      <p>Status: {{ template.status }}</p>
+      <p>Subject: {{ template.subject }}</p>
+      <p>CSEC Section: {{ template.csecSection }}</p>
+      <p>Objectives: {{ template.objectives.join(", ") }}</p>
+      <p>Question Format: {{ template.questionFormat }}</p>
+      <p>Question Type: {{ template.questionType }}</p>
+      <p>Difficulty: {{ template.difficulty }}</p>
+    </div>
+  </div>
+</div>

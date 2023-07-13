@@ -1,1 +1,31 @@
-<p>all-templates-page works!</p>
+<div class="top-container">
+  <div>
+    <h1>Template Listing</h1>
+    <div class="form-group">
+      <label for="subject">Select Subject</label>
+      <select
+        id="subject"
+        name="subject"
+        required
+        [(ngModel)]="filters.subject"
+        #subject="ngModel"
+      >
+        <option value="" disabled>Select Subject</option>
+        <option *ngFor="let subject of subjectOptions" [value]="subject.name">
+          {{ subject.name }}
+        </option>
+      </select>
+      <div *ngIf="subject.invalid && subject.touched" class="error-message">
+        Subject is required
+      </div>
+    </div>
+  </div>
+  <button>Add New Template</button>
+</div>
+<div class="searchbar">
+  <input placeholder="search" />
+</div>
+
+<div class="display-templates">
+  <app-display-templates></app-display-templates>
+</div>
