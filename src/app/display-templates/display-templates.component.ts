@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { QuestionTemplatesService } from '../question-templates.service';
 import { QuestionTemplateResponse } from 'src/responseTypes';
+import { TemplateFilters } from 'src/types';
 
 @Component({
   selector: 'app-display-templates',
@@ -8,18 +9,5 @@ import { QuestionTemplateResponse } from 'src/responseTypes';
   styleUrls: ['./display-templates.component.css'],
 })
 export class DisplayTemplatesComponent {
-  templates: QuestionTemplateResponse[] = [];
-
-  constructor(private questionTemplatesService: QuestionTemplatesService) {}
-
-  ngOnInit() {
-    this.questionTemplatesService.getQuestionTemplates().subscribe(
-      (response: QuestionTemplateResponse[]) => {
-        this.templates = response;
-      },
-      (error) => {
-        console.log('Error loading subjects:', error);
-      }
-    );
-  }
+  @Input() templates: QuestionTemplateResponse[] = [];
 }

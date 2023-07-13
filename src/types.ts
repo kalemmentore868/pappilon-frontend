@@ -45,3 +45,8 @@ export interface QuestionSolutions {
   image_solution: string;
   question_template_id: string;
 }
+
+export interface TemplateFilters {
+  subject: string;
+  name: string;
+}

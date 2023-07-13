@@ -9,23 +9,25 @@
         required
         [(ngModel)]="filters.subject"
         #subject="ngModel"
+        (ngModelChange)="onFilterChange()"
       >
-        <option value="" disabled>Select Subject</option>
+        <option value="">All</option>
         <option *ngFor="let subject of subjectOptions" [value]="subject.name">
           {{ subject.name }}
         </option>
       </select>
-      <div *ngIf="subject.invalid && subject.touched" class="error-message">
-        Subject is required
-      </div>
     </div>
   </div>
   <button>Add New Template</button>
 </div>
 <div class="searchbar">
-  <input placeholder="search" />
+  <input
+    placeholder="Search"
+    [(ngModel)]="filters.name"
+    (ngModelChange)="onFilterChange()"
+  />
 </div>
 
 <div class="display-templates">
-  <app-display-templates></app-display-templates>
+  <app-display-templates [templates]="templates"></app-display-templates>
 </div>
