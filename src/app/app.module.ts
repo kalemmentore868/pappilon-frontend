@@ -13,8 +13,13 @@ import { QuestionTemplateFormComponent } from './question-template-form/question
 import { QuestionDetailsFormComponent } from './question-details-form/question-details-form.component';
 import { QuestionSolutionsComponent } from './question-solutions/question-solutions.component';
 import { DisplayTemplatesComponent } from './display-templates/display-templates.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 const appRoutes: Routes = [
+  {
+    path: '',
+    component: HomepageComponent,
+  },
   {
     path: 'new-template',
     component: NewTemplatePageComponent,
@@ -34,6 +39,7 @@ const appRoutes: Routes = [
     QuestionDetailsFormComponent,
     QuestionSolutionsComponent,
     DisplayTemplatesComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
