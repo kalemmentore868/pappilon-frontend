@@ -62,10 +62,30 @@ export class AllTemplatesPageComponent implements OnInit {
     } else {
       this.templates = this.allTemplates.filter((template) => {
         return (
-          template.subject
+          (template.subject
             .toLowerCase()
             .includes(this.filters.subject.toLowerCase()) &&
-          template.name.toLowerCase().includes(this.filters.name.toLowerCase())
+            template.name
+              .toLowerCase()
+              .includes(this.filters.name.toLowerCase())) ||
+          template.questionFormat
+            .toLowerCase()
+            .includes(this.filters.name.toLowerCase()) ||
+          template.questionType
+            .toLowerCase()
+            .includes(this.filters.name.toLowerCase()) ||
+          template.difficulty
+            .toLowerCase()
+            .includes(this.filters.name.toLowerCase()) ||
+          template.description
+            .toLowerCase()
+            .includes(this.filters.name.toLowerCase()) ||
+          template.csecSection
+            .toLowerCase()
+            .includes(this.filters.name.toLowerCase()) ||
+          template.objectives.some((objective) =>
+            objective.toLowerCase().includes(this.filters.name.toLowerCase())
+          )
         );
       });
     }
