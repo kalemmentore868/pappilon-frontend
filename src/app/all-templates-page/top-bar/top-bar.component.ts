@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { getTimeNow } from 'src/app/helpers/time';
 import { IPService } from 'src/app/services/ip-service';
-import { QuestionTemplatesService } from 'src/app/services/question-templates.service';
 import { SubjectsService } from 'src/app/subjects.service';
 import { Subject } from 'src/types';
 
@@ -12,6 +12,7 @@ import { Subject } from 'src/types';
 export class TopBarComponent implements OnInit {
   subjects: Subject[] = [];
   country: string = '';
+  time = getTimeNow();
 
   constructor(
     private subjectService: SubjectsService,

@@ -8,7 +8,7 @@ import { API_URL } from 'src/config';
 })
 export class IPService {
   private apiKey = '3ef6de2f08688b2e51aa0354f8061591'; // Replace with your ipstack API key
-  private apiUrl = 'http://api.ipstack.com/';
+  private apiUrl = 'https://api.ipstack.com/';
 
   constructor(private http: HttpClient) {}
 
