@@ -7,8 +7,7 @@ import { API_URL } from 'src/config';
   providedIn: 'root',
 })
 export class IPService {
-  private apiKey = '3ef6de2f08688b2e51aa0354f8061591'; // Replace with your ipstack API key
-  private apiUrl = 'https://api.ipstack.com/';
+  private apiUrl = 'https://api.iplocation.net/?ip=';
 
   constructor(private http: HttpClient) {}
 
@@ -18,9 +17,7 @@ export class IPService {
       // Then, fetch the country information based on the IP address
       switchMap((response) => {
         const ipAddress = response.ip;
-        return this.http.get(
-          `${this.apiUrl}/${ipAddress}?access_key=${this.apiKey}`
-        );
+        return this.http.get(`${this.apiUrl}${ipAddress}`);
       })
     );
   }
