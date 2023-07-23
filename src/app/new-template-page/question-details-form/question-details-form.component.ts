@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { QuestionDetails } from 'src/types';
-import { QuestionIdService } from '../question-id-service.service';
-import { QuestionDetailsService } from '../question-details.service';
-import { NewTemplatePageComponent } from '../new-template-page/new-template-page.component';
+import { QuestionIdService } from '../../services/question-id-service.service';
+import { QuestionDetailsService } from '../../services/question-details.service';
+import { NewTemplatePageComponent } from '../new-template-page.component';
 
 @Component({
   selector: 'app-question-details-form',

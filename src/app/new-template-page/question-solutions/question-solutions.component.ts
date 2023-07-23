@@ -1,5 +1,5 @@
-import { QuestionIdService } from '../question-id-service.service';
-import { QuestionSolutionsService } from '../question-solutions.service';
+import { QuestionIdService } from '../../services/question-id-service.service';
+import { QuestionSolutionsService } from '../../services/question-solutions.service';
 import { Component } from '@angular/core';
 import { QuestionSolutions } from 'src/types';
 import { Router } from '@angular/router';

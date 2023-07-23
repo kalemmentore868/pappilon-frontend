@@ -1,10 +1,10 @@
 import { Component, Inject } from '@angular/core';
 import { QuestionFormValue, Subject, CSECSection } from 'src/types';
-import { SubjectsService } from '../subjects.service';
-import { CsecSectionsService } from '../csec-sections.service';
-import { QuestionTemplatesService } from '../question-templates.service';
-import { NewTemplatePageComponent } from '../new-template-page/new-template-page.component';
-import { QuestionIdService } from '../question-id-service.service';
+import { SubjectsService } from '../../subjects.service';
+import { CsecSectionsService } from '../../services/csec-sections.service';
+import { QuestionTemplatesService } from '../../services/question-templates.service';
+import { NewTemplatePageComponent } from '../new-template-page.component';
+import { QuestionIdService } from '../../services/question-id-service.service';
 
 @Component({
   selector: 'app-question-template-form',

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, TemplateFilters } from 'src/types';
 import { SubjectsService } from '../subjects.service';
-import { QuestionTemplatesService } from '../question-templates.service';
+import { QuestionTemplatesService } from '../services/question-templates.service';
 import { QuestionTemplateResponse } from 'src/responseTypes';
 
 @Component({
   selector: 'app-all-templates-page',
   templateUrl: './all-templates-page.component.html',
-  styleUrls: ['./all-templates-page.component.css'],
+  styleUrls: ['./all-templates-page.component.scss'],
 })
 export class AllTemplatesPageComponent implements OnInit {
   subjectOptions: Subject[] = [];

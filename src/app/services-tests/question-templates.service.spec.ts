@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { QuestionTemplatesService } from './question-templates.service';
+import { QuestionTemplatesService } from '../services/question-templates.service';
 
 describe('QuestionTemplatesService', () => {
   let service: QuestionTemplatesService;

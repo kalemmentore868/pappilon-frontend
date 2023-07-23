@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { QuestionSolutions } from 'src/types';
-import { API_URL } from '../config';
+import { API_URL } from '../../config';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({

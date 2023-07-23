@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CsecSectionsService } from './csec-sections.service';
+import { CsecSectionsService } from '../services/csec-sections.service';
 
 describe('CsecSectionsService', () => {
   let service: CsecSectionsService;

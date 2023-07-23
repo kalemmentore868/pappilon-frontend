@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { QuestionFormValue } from 'src/types';
-import { API_URL } from '../config';
+import { API_URL } from '../../config';
 import { QuestionTemplateResponse } from 'src/responseTypes';
 
 @Injectable({
